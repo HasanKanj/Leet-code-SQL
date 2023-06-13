@@ -19,3 +19,29 @@ where id not in (select customerId from Orders)
 
 5. Delete from PERSON
 WHERE ID NOT IN(SELECT MIN(ID) FROM PERSON GROUP BY EMAIL)
+
+6.SELECT w2.Id 
+FROM Weather w1
+INNER JOIN Weather w2 ON DATEDIFF(day, w1.recordDate, w2.recordDate)=1 AND w2.Temperature > w1.Temperature
+
+7.SELECT next_day_weather.Id
+FROM Weather current_day_weather
+INNER JOIN Weather next_day_weather 
+    ON DATEDIFF(day, current_day_weather.recordDate, next_day_weather.recordDate) = 1 
+    AND next_day_weather.Temperature > current_day_weather.Temperature;
+    
+8.select distinct player_id, Min(event_date) as first_login from Activity group by player_id ; 
+
+9.SELECT name FROM Customer where referee_id is null or referee_id <> 2;
+
+10.SELECT
+    World.name,
+    World.population,
+    World.area
+FROM
+    World
+WHERE
+    World.area >= 3000000
+    OR World.population >= 25000000
+
+11.
