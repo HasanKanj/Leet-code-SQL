@@ -1,0 +1,21 @@
+Leet Code SQL Problems Answers 
+
+1.select p.firstName , p.lastName, a.city , a.state 
+  from Person p LEFT JOIN Address a USING(personId) 
+  
+2.SELECT MAX(Salary) AS SecondHighestSalary FROM Employee 
+WHERE 
+Salary < (SELECT MAX(Salary) FROM Employee)
+and
+Salary >= (SELECT MIN(Salary) FROM Employee)
+
+3.SELECT 
+email as Email 
+FROM PERSON 
+GROUP BY email HAVING count(email) > 1;  
+
+4.select name as customers from Customers 
+where id not in (select customerId from Orders)
+
+5. Delete from PERSON
+WHERE ID NOT IN(SELECT MIN(ID) FROM PERSON GROUP BY EMAIL)
